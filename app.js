@@ -1,21 +1,22 @@
 new Vue({
   el: '#vue-app',
   data: {
-    age: 37,
-    x: 0,
-    y: 0,
+    health: 100,
+    ended: false,
   },
   methods: {
-    add: function(years){
-      this.age+=years;
+    punch: function(){
+      this.health -= 10;
+      if (this.health <= 0){
+        this.ended = true;
+      }
     },
-    subtract: function(years){
-      this.age-=years;
+    restart: function(){
+      this.health = 100;
+      this.ended = false;
     },
-    updateXY: function(event){
-      console.log(event);
-      this.x = event.offsetX;
-      this.y = event.offsetY;
-    }
+  },
+  computed: {
+
   }
 });
